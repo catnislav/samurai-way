@@ -1,0 +1,69 @@
+.comment {
+  display: flex;
+  align-items: center;
+
+  & > *:not(:last-child) {
+    margin-right: 16px;
+  }
+
+  &__avatar {
+    width: 54px;
+    height: 54px;
+    border-radius: 50%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+
+  &__message {
+    color: #27251F;
+  }
+
+  &__likes {
+    margin-left: auto;
+    font-size: 12px;
+    color: #FFC72C;
+  }
+
+  &Form {
+    display: flex;
+    flex-direction: column;
+
+    & > *:not(:last-child) {
+      margin-bottom: 8px;
+    }
+
+    &__textarea,
+    &__button {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      color: #27251F;
+    }
+
+    &__textarea {
+      padding: 8px;
+      border-color: #27251F;
+      resize: none;
+
+      &::placeholder {
+        color: rgba(#27251F, .5);
+      }
+    }
+
+    &__button {
+      border: none;
+      padding: 8px;
+      font-size: 16px;
+      background-color: #FFC72C;
+      cursor: pointer;
+    }
+  }
+
+  &Group {
+    & > *:not(:last-child) {
+      margin-bottom: 24px;
+      // border-bottom: 1px solid rgba(#27251F, .5);
+    }
+  }
+}

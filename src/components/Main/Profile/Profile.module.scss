@@ -1,0 +1,16 @@
+.profile {
+  & > *:not(:last-child) {
+    margin-bottom: 24px;
+  }
+
+  &__background {
+    height: 216px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+
+  &__title {
+    font-size: 24px;
+  }
+}

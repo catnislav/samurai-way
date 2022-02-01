@@ -1,0 +1,24 @@
+.nav {
+  grid-area: nav;
+  padding: 24px;
+  // background-color: #DA291C;
+  background-color: #FFC72C;
+
+  & > *:not(:last-child) {
+    margin-bottom: 24px;
+  }
+
+  &__block {
+    display: flex;
+    flex-direction: column;
+
+    & > *:not(:last-child) {
+      margin-bottom: 8px;
+    }
+
+    &__item {
+      text-decoration: none;
+      color: #27251F;
+    }
+  }
+}

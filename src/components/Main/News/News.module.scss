@@ -1,0 +1,9 @@
+.news {
+  & > *:not(:last-child) {
+    margin-bottom: 24px;
+  }
+
+  &__title {
+    font-size: 24px;
+  }
+}

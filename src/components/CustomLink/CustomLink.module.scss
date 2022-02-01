@@ -1,0 +1,49 @@
+.CustomLink {
+  display: flex;
+  align-items: flex-end;
+
+  & > *:not(:last-child) {
+    margin-right: 8px;
+  }
+
+  &__avatar {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 54px;
+    height: 54px;
+    border-radius: 50%;
+    background-color:rgba(#27251F, .2);
+
+    &__image {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      border-radius: 50%;
+    }
+  }
+
+  &__content {
+    padding: 8px;
+    border-radius: 16px;
+    border: 1px solid rgba(#27251F, .2);
+    font-size: 12px;
+    line-height: 14px;
+  }
+
+  &Own {
+    margin-left: auto;
+    flex-direction: row-reverse;
+
+    & > *:not(:last-child) {
+      margin-right: 0;
+      margin-left: 8px;
+    }
+  }
+}

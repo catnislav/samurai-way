@@ -1,0 +1,8 @@
+.main {
+  grid-area: main;
+  padding: 24px;
+
+  & > *:not(:Last-child) {
+    margin-bottom: 24px;
+  }
+}
