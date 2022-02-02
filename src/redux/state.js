@@ -1,3 +1,5 @@
+import render from "../render"
+
 export let userList = [
   {
     id: 0,
@@ -148,20 +150,33 @@ export let commentList = [
 let state = {
   userList,
   chatList,
-  commentList
+  commentList,
+  textareaValue: ''
 }
 
-export let addComment = (content) => {
-  debugger
-  
-  let comment = {
-    id: 3,
-    user: 0,
+window.state = state
+
+let id = 3
+
+export let addComment = (content = state.textareaValue, user = 0, likes = 0) => {
+  const comment = {
+    id,
+    user,
     content,
-    likes: 1,
+    likes,
   }
 
-  state.chatList.push(comment)
+  content && state.commentList.push(comment) && (setTextareaValue(''))
+
+  id++
+
+  render()
+}
+
+export let setTextareaValue = (value) => {
+  state.textareaValue = value
+
+  render()
 }
 
 export default state
