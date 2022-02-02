@@ -151,4 +151,17 @@ let state = {
   commentList
 }
 
+export let addComment = (content) => {
+  debugger
+  
+  let comment = {
+    id: 3,
+    user: 0,
+    content,
+    likes: 1,
+  }
+
+  state.chatList.push(comment)
+}
+
 export default state
