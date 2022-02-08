@@ -3,18 +3,20 @@ import { Route, Routes } from 'react-router-dom'
 import styles from './Chat.module.scss'
 import ChatMessage from './ChatMessage/ChatMessage'
 import CustomLink from '../../../CustomLink/CustomLink'
-import state from '../../../../redux/state'
+import ChatMessageForm from './ChatMessage/ChatMessageForm'
+
+import store from '../../../../redux/store'
 
 const Chat = () => {
   return (
     <div className={styles.chat}>
       <div className={styles.chat__list}>
-        { state.chatList.map(el => <CustomLink key={el.id} className={styles.chat__list__item} to={`/messages/${el.id}`}>{el.name}</CustomLink>) }
+        { store.getState().chatList.map(el => <CustomLink key={el.id} className={styles.chat__list__item} to={`/messages/${el.id}`}>{el.name}</CustomLink>) }
       </div>
 
       <div className={styles.chat__messages}>
         <Routes>
-          { state.chatList.map(el => {
+          { store.getState().chatList.map((el, ind) => {
              return (
               <Route key={el.id} path={`/${el.id}`} element={
                 <React.Fragment>
@@ -22,13 +24,14 @@ const Chat = () => {
                     return (
                       <ChatMessage
                         key={elm.id}
-                        avatar={state.userList[elm.user].avatar}
-                        abbr={state.userList[elm.user].abbr}
+                        avatar={store.getState().userList[elm.user].avatar}
+                        abbr={store.getState().userList[elm.user].abbr}
                         content={elm.content}
                         own={elm.own}
                       />
                     )
                   })}
+                  <ChatMessageForm chatIndex={ind} messageValue={el.messageValue} messageNewId={el.messageNewId} />
                 </React.Fragment>
               } />
             )

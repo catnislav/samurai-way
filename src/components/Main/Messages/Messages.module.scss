@@ -1,4 +1,8 @@
 .messages {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+
   & > *:not(:last-child) {
     margin-bottom: 24px;
   }

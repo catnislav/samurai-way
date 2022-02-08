@@ -1,4 +1,5 @@
 .chat {
+  flex-grow: 1;
   display: flex;
 
   & > *:not(:last-child) {
