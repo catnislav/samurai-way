@@ -11,12 +11,12 @@ const Chat = () => {
   return (
     <div className={styles.chat}>
       <div className={styles.chat__list}>
-        { store.getState().chatList.map(el => <CustomLink key={el.id} className={styles.chat__list__item} to={`/messages/${el.id}`}>{el.name}</CustomLink>) }
+        { store.getState().messages.chatList.map(el => <CustomLink key={el.id} className={styles.chat__list__item} to={`/messages/${el.id}`}>{el.name}</CustomLink>) }
       </div>
 
       <div className={styles.chat__messages}>
         <Routes>
-          { store.getState().chatList.map((el, ind) => {
+          { store.getState().messages.chatList.map((el, ind) => {
              return (
               <Route key={el.id} path={`/${el.id}`} element={
                 <React.Fragment>

@@ -4,7 +4,7 @@ import './index.css'
 import App from './App'
 import store from './redux/store'
 
-let render = () => {
+let listener = () => {
   return ReactDOM.render(
     <React.StrictMode>
       <App />
@@ -13,5 +13,5 @@ let render = () => {
   )
 }
 
-render()
-store.setRender(render)
+listener()
+store.subscribe(listener)

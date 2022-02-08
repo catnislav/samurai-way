@@ -1,7 +1,7 @@
 import React from 'react'
 import styles from '../../../Profile/Comment/Comment.module.scss'
 import store from '../../../../../redux/store'
-import { addMessageActionCreator, setMessageValueActionCreator } from '../../../../../redux/store'
+import { addMessageActionCreator, setMessageValueActionCreator } from '../../../../../redux/messagesReducer'
 
 const ChatMessageForm = ({chatIndex, messageValue, messageNewId}) => {
   const messageRef = React.createRef()
@@ -17,7 +17,7 @@ const ChatMessageForm = ({chatIndex, messageValue, messageNewId}) => {
   return (
     <div className={styles.commentForm} style={{marginTop: 'auto'}}>
       <textarea ref={messageRef} rows={1} className={styles.commentForm__textarea} placeholder={'Message'} value={messageValue} onChange={() => setMessageValue(messageRef.current.value)} />
-      <button onClick={onClickAddMessage} className={styles.commentForm__button}>Add a message {messageNewId}</button>
+      <button onClick={onClickAddMessage} className={styles.commentForm__button}>Add a message</button>
     </div>
   )
 }

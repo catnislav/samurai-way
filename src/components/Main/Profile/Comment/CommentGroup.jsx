@@ -3,21 +3,13 @@ import Comment from './Comment.jsx'
 import CommentForm from './CommentForm.jsx'
 import styles from './Comment.module.scss'
 import store from '../../../../redux/store'
-import { addCommentActionCreator, setCommentValueActionCreator } from '../../../../redux/store'
+import { addCommentActionCreator, setCommentValueActionCreator } from '../../../../redux/profileReducer'
 
 const CommentGroup = () => {
   const commentRef = React.createRef()
   
   const onClickAddComment = () => {
-    // let comment = textareaRef.current.value
-
-    // addComment(comment)
-    // store.addComment()
-    // store.dispatch({type: 'ADD-COMMENT'})
     store.dispatch(addCommentActionCreator())
-
-    // textareaRef.current.value = ''
-    // store.setCommentValue('')
   }
 
   const setCommentValue = (commentValue) => {
@@ -27,8 +19,8 @@ const CommentGroup = () => {
 
   return (
     <div className={styles.commentGroup}>
-      <CommentForm textareaRef={commentRef} textareaValue={store.getState().commentValue} setTextareaValue={setCommentValue} onClickAddComment={onClickAddComment} />
-      {store.getState().commentList.map(el => {
+      <CommentForm textareaRef={commentRef} textareaValue={store.getState().profile.commentValue} setTextareaValue={setCommentValue} onClickAddComment={onClickAddComment} />
+      {store.getState().profile.commentList.map(el => {
         return <Comment key={el.id} avatar={store.getState().userList[el.user].avatar} content={el.content} likes={el.likes} />
       })}
     </div>
