@@ -1,6 +1,6 @@
 import React from 'react'
 import styles from './Messages.module.scss'
-import Chat from './Chat/Chat'
+import ChatContainer from './Chat/ChatContainer'
 
 const Messages = () => {
   return (
@@ -9,7 +9,7 @@ const Messages = () => {
         Messages
       </div>
 
-      <Chat />
+      <ChatContainer />
     </div>
   )
 }

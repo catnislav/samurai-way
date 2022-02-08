@@ -1,5 +1,5 @@
 import React from 'react'
-import CommentGroup from './Comment/CommentGroup'
+import CommentGroupContainer from './Comment/CommentGroupContainer'
 import styles from './Profile.module.scss'
 
 const Profile = () => {
@@ -11,7 +11,7 @@ const Profile = () => {
         Profile
       </div>
 
-      <CommentGroup />
+      <CommentGroupContainer />
     </div>
   )
 }

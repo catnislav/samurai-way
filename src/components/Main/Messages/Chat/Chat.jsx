@@ -5,18 +5,16 @@ import ChatMessage from './ChatMessage/ChatMessage'
 import CustomLink from '../../../CustomLink/CustomLink'
 import ChatMessageForm from './ChatMessage/ChatMessageForm'
 
-import store from '../../../../redux/store'
-
-const Chat = () => {
+const Chat = ({messagesStore, usersStore, onClickAddMessage, onChangeMessageValue}) => {
   return (
     <div className={styles.chat}>
       <div className={styles.chat__list}>
-        { store.getState().messages.chatList.map(el => <CustomLink key={el.id} className={styles.chat__list__item} to={`/messages/${el.id}`}>{el.name}</CustomLink>) }
+        { messagesStore.chatList.map(el => <CustomLink key={el.id} className={styles.chat__list__item} to={`/messages/${el.id}`}>{el.name}</CustomLink>) }
       </div>
 
       <div className={styles.chat__messages}>
         <Routes>
-          { store.getState().messages.chatList.map((el, ind) => {
+          { messagesStore.chatList.map((el, ind) => {
              return (
               <Route key={el.id} path={`/${el.id}`} element={
                 <React.Fragment>
@@ -24,14 +22,20 @@ const Chat = () => {
                     return (
                       <ChatMessage
                         key={elm.id}
-                        avatar={store.getState().userList[elm.user].avatar}
-                        abbr={store.getState().userList[elm.user].abbr}
+                        avatar={usersStore[elm.user].avatar}
+                        abbr={usersStore[elm.user].abbr}
                         content={elm.content}
                         own={elm.own}
                       />
                     )
                   })}
-                  <ChatMessageForm chatIndex={ind} messageValue={el.messageValue} messageNewId={el.messageNewId} />
+                  <ChatMessageForm
+                    chatIndex={ind}
+                    messageValue={el.messageValue}
+                    messageNewId={el.messageNewId}
+                    onClickAddMessage={onClickAddMessage}
+                    onChangeMessageValue={onChangeMessageValue}
+                  />
                 </React.Fragment>
               } />
             )

@@ -3,7 +3,7 @@ import messagesReducer from "./messagesReducer"
 
 let store = {
   _state: {
-    userList: [
+    users: [
       {
         id: 0,
         abbr: 'SP',
