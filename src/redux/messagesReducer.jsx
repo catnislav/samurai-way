@@ -109,6 +109,16 @@ let initialState = {
 }
 
 const messagesReducer = (state = initialState, action) => {
+  let newState = {
+    ...state,
+    chatList: [
+      ...state.chatList.map((el, ind) => ({
+        ...el,
+        messages: [...state.chatList[ind].messages]
+      }))
+    ],
+  }
+
   switch(action.type) {
     case ADD_MESSAGE:
       const message = {
@@ -119,16 +129,16 @@ const messagesReducer = (state = initialState, action) => {
       }
   
       if (message.content) {
-        state.chatList[action.index].messages.push(message)
-        state.chatList[action.index].messageNewId++
+        newState.chatList[action.index].messages.push(message)
+        newState.chatList[action.index].messageNewId++
       }
       
       // state.dispatch({type: SET_MESSAGE_VALUE, index: action.index, value: ''})
-      state.chatList[action.index].messageValue = ''
-      return state
+      newState.chatList[action.index].messageValue = ''
+      return newState
     case SET_MESSAGE_VALUE:
-      state.chatList[action.index].messageValue = action.value
-      return state
+      newState.chatList[action.index].messageValue = action.value
+      return newState
     default:
       return state
   }

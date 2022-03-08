@@ -1,6 +1,7 @@
 import React from 'react'
 import styles from './Messages.module.scss'
 import ChatContainer from './Chat/ChatContainer'
+import StoreContext from '../../../StoreContext'
 
 const Messages = () => {
   return (
@@ -9,7 +10,9 @@ const Messages = () => {
         Messages
       </div>
 
-      <ChatContainer />
+      <StoreContext.Consumer>
+        { value => <ChatContainer store={value} /> }
+      </StoreContext.Consumer>
     </div>
   )
 }

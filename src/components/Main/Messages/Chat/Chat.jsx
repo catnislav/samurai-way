@@ -22,8 +22,8 @@ const Chat = ({messagesStore, usersStore, onClickAddMessage, onChangeMessageValu
                     return (
                       <ChatMessage
                         key={elm.id}
-                        avatar={usersStore[elm.user].avatar}
-                        abbr={usersStore[elm.user].abbr}
+                        avatar={usersStore.usersList[elm.user].avatar}
+                        abbr={usersStore.usersList[elm.user].abbr}
                         content={elm.content}
                         own={elm.own}
                       />

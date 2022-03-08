@@ -27,6 +27,9 @@ let initialState = {
 }
 
 const profileReducer = (state = initialState, action) => {
+  let newState = {...state}
+  newState.commentList = [...state.commentList]
+
   switch(action.type) {
     case ADD_COMMENT:
       const comment = {
@@ -37,16 +40,16 @@ const profileReducer = (state = initialState, action) => {
       }
   
       if (comment.content) {
-        state.commentList.push(comment)        
-        state.commentListNewId++
+        newState.commentList.push(comment)        
+        newState.commentListNewId++
       }
 
       // state.dispatch({type: SET_COMMENT_VALUE, value: ''})
-      state.commentValue = ''
-      return state
+      newState.commentValue = ''
+      return newState
     case SET_COMMENT_VALUE:
-      state.commentValue = action.value
-      return state
+      newState.commentValue = action.value
+      return newState
     default:
       return state
   }

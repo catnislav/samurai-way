@@ -10,7 +10,7 @@ const CommentGroup = ({onClickAddComment, onChangeCommentValue, profileStore, us
     <div className={styles.commentGroup}>
       <CommentForm textareaRef={commentRef} textareaValue={profileStore.commentValue} onChangeTextareaValue={onChangeCommentValue} onClickAddComment={onClickAddComment} /> 
       {profileStore.commentList.map(el => {
-        return <Comment key={el.id} avatar={usersStore[el.user].avatar} content={el.content} likes={el.likes} />
+        return <Comment key={el.id} avatar={usersStore.usersList[el.user].avatar} content={el.content} likes={el.likes} />
       })}
     </div>
   )

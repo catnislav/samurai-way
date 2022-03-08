@@ -1,6 +1,7 @@
 import React from 'react'
 import CommentGroupContainer from './Comment/CommentGroupContainer'
 import styles from './Profile.module.scss'
+import StoreContext from '../../../StoreContext'
 
 const Profile = () => {
   return (
@@ -11,7 +12,9 @@ const Profile = () => {
         Profile
       </div>
 
-      <CommentGroupContainer />
+      <StoreContext.Consumer>
+        { value => <CommentGroupContainer store={value} /> }
+      </StoreContext.Consumer>
     </div>
   )
 }

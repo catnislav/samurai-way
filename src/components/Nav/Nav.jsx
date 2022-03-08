@@ -12,6 +12,9 @@ const Nav = () => {
         <CustomLink className={styles.nav__block__item} to="/music">Music</CustomLink>
       </div>
       <div className={styles.nav__block}>
+        <CustomLink to="/users">Users</CustomLink>
+      </div>
+      <div className={styles.nav__block}>
         <CustomLink to="/settings">Settings</CustomLink>
       </div>
     </nav>
